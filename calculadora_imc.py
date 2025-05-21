@@ -2,8 +2,17 @@
 
 def calcular_imc():
     nome = input('Digite seu nome: ')
-    peso = float(input('Digite seu peso(kg): '))
-    altura = float(input('Digite sua altura(m): '))
+    try:
+        peso = float(input('Digite seu peso(kg): '))
+        altura = float(input('Digite sua altura(m): '))
+    except ValueError:
+        print('Entrada Inválida!')
+        return
+
+    if peso <= 0 or altura <=0:
+        print('Peso e Altura devem ser números positivos!')
+        return
+
     imc = peso / (altura * altura)
     
     if imc <= 18.5:
